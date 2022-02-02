@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block head_title %}{% endblock %}</title>
+    <!-- Importing Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- IDEA: Linking our CSS -->
+    <link rel="stylesheet" href="{% static 'scorptec/css/style.css' %}">
+
+  <body>
+    <!-- IDEA: NavBar starts here -->
+    <div class="navbar navbar-expand-lg navbar-light justify-content-between" style="padding: 0% 10%; font-size:1.15rem;">
+      <!-- IDEA: Brand logo display for our navbar -->
+      <a class="navbar-brand" href="#">
+        <img src="{% static 'scorptec/images/logo.png' %}" width ="200px" height = "60px" alt="">
+      </a>
+
+      <!-- IDEA: log in button display in our nav bar -->
+
+      <a href="{% url 'scorptec:login'%}"> <button class="btn btn-primary" type="submit" name="button">Log In</button></a>
+
+
+      <!-- IDEA: Toggle button display on NavBar -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon" style="color:black;"></span>
+      </button>
+
+
+      <!-- IDEA: menu items display in navbar -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class = "navbar-nav" style="margin-left: 10%;">
+          <li class = "nav-item">
+            <a class="nav-link" href="{% url 'index' %}"><span class = "navigation-items">Home</span></a>
+          </li>
+          <li class = "nav-item">
+            <a class="nav-link" href="{% url 'scorptec:product'%}"><span class = "navigation-items">Products</span></a>
+          </li>
+          <li class = "nav-item">
+            <a class="nav-link" href="{% url 'scorptec:about'%}"><span class = "navigation-items">About</span></a>
+          </li>
+          <li class = "nav-item">
+            <a class="nav-link" href="{% url 'scorptec:contact'%}"><span class = "navigation-items">Contact</span></a>
+          </li>
+        </ul>
+
+
+
+      </div>
+    </div>
+    <!-- IDEA: Navbar ends here -->
+    <!-- IDEA: Show if there is any messages -->
+    {% if messages %}
+    {% for message in messages %}
+
+      <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <center><strong> {{ message }} </strong></center>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+    {% endfor %}
+    {% endif %}
+    <!-- IDEA: End of displaying messages -->
+
+    {%block body_block %}
+    {% endblock %}
+
+
+    <!-- IDEA: Footet starts here -->
+    <div class="container" style= "background-color: black; color: white; padding: 2rem; width: 80%;">
+      <div class="row">
+        <div class="col-md-4 lg-4">
+          <form>
+            <div class="form-text">
+              <h4>Subscribe to our Weekly newsletter.</h4>
+            </div>
+            <div class="row">
+              <div class="col-md-8 lg-10">
+                <input type="email" class="form-control" placeholder="Email Address">
+              </div>
+              <div class="col-md-4 lg-2">
+                <button type="submit" class="btn btn-success">Subscribe</button>
+              </div>
+            </div>
+            <div class="form-text">
+              Your email will not be shared with any 3rd party.
+            </div>
+          </form>
+          <hr>
+          <p>Connect with us:</p>
+          <div class="row">
+            <div class="col">
+              <a href="https://www.facebook.com/profile.php?id=100055736422085"><img class = "social-link" src="{% static 'scorptec/images/facebook.png'%}" alt=""></a>
+            </div>
+            <div class="col">
+              <a href="https://twitter.com/Scorptec2"><img class = "social-link" src="{% static 'scorptec/images/twitter-logo-button.png'%}" alt=""></a>
+            </div>
+            <div class="col">
+              <a href="https://www.instagram.com/scorptec536/"><img class = "social-link" src="{% static 'scorptec/images/instagram.png'%}" alt=""></a>
+            </div>
+            <div class="col">
+              <a href="https://www.youtube.com/"><img class = "social-link" src="{% static 'scorptec/images/youtube.png'%}" alt=""></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 lg-4" style = "padding-left: 3rem;">
+          <h4>Our mission:</h4>
+          <p>To enable people and businesses throughout the world to realize their full potential</p>
+          <hr>
+          <h4>Our brands</h4>
+          <div class="row">
+            <div class="col-6">
+              <ul class="list-unstyled">
+                <li>Apple</li>
+                <li>Samsung</li>
+                <li>Oppo</li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <ul class="list-unstyled">
+                <li>Lenovo</li>
+                <li>Dell</li>
+                <li>Asus</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 lg-4">
+
+          <img src="{% static 'scorptec/images/logo2.jpg' %}" height="100px" width="100px"alt="">
+          <img src="{%static 'scorptec/images/logo-white.png' %}" height="100px" width="200px" alt="">
+          <p style="padding-left: 1rem;">
+            <strong>Email: </strong> <u>scortec588@gmail.com</u><br>
+            <strong>Address: </strong> 1/42 The Walz street, Rockdale <br>
+            <strong>Opening time </strong> 7am to 8pm
+          </p>
+        </div>
+      </div>
+      <hr>
+      <p class="text-center" style="padding-bottom:0px; margin-bottom: 0px;"> &copy; 2021 Copyright : Scorptec Electronics. All Rights Reserved  <a href="{% url 'scorptec:policy'%}" style="color:white;">Privacy Policy </a>  <a href="{% url 'scorptec:terms'%}" style="color:white;">Terms & Conditions</a></p>
+
+
+    </div>
+    <!-- IDEA: Footer Ends here -->
+
+
+
+    <!-- IDEA: importing jquery -->
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+
+    <!-- idea: importing js and popper package -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

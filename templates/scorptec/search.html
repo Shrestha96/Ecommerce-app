@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{%extends 'scorptec/user_design.html'%}
+{%load static%}
+
+    {% block body_block %}
+        <!-- IDEA: Product section start -->
+        <div class="container" style="padding-top:20px; width: 80%; ">
+        {% if messages %}
+            {% for message in messages %}
+            <p  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </p>
+            {% endfor %}
+            {% endif %}
+
+        <h1 class = "text-center heading" style="color:black;"> Search Results</h1>
+        <div class="row">
+            {% if results %}
+            {%for product in results %}
+            <div class="col-md-3">
+                <div class="card" style="width: 19rem; margin: 2rem auto; padding:1.25rem;">
+                <img src="{{product.product_image.url}}" class="card-img-top card-height" alt="...">
+                <div class="card-body">
+                <h5 class="card-title text-center">{{product.product_name}}</h5>
+                <p class="card-text">
+                    {{product.product_description}}
+                </p>
+                </div>
+                <hr/>
+                <div class="row justify-content-center">
+                  <div class="col-md-4">
+                    <h6>${{product.product_price}}</h6>
+                  </div>
+                  <div class="col-md-4">
+                   <button data-product ={{product.id}} data-action="add" class="btn btn-secondary update-fav-btn" style="padding:1px;"><img src="{% static 'scorptec/images/favourite.png' %}" style="height:2.7rem;"alt=""></button>
+                  </div>
+                  <div class="col-md-4">
+                    <button data-product ={{product.id}} data-action="add" class="btn btn-info update-btn" style="padding:0.45rem 1.3rem;"><img src="{% static 'scorptec/images/addToCart.png' %}" style="height:2rem;width:2.5rem;"alt=""> </button>
+                  </div>
+
+                </div>
+
+            </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <h4>No search result found for <span style="color:red">{{q}}</span></h4>
+            <br>
+            <br>
+            <br>
+            <br>
+            {% endif %}
+        </div>
+    {% endblock %}

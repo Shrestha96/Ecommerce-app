@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+{%extends 'scorptec/design.html'%}
+{%block head_title%} Scorptec-products {%endblock%}
+{%load static%}
+
+
+  {% block body_block %}
+
+  <!-- IDEA: carousel starts here -->
+
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" >
+        <div class="overlay-image" style="background-image: url('/static/scorptec/images/carousel4.jpg')">
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="overlay-image"  style="background-image: url('/static/scorptec/images/carousel5.jpg')">
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="overlay-image" style="background-image: url('/static/scorptec/images/carousel6.jpg')">
+        </div>
+
+      </div>
+    </div>
+    <button id="carousel-button" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button id="carousel-button" class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- IDEA: carousel ends here -->
+
+  <!-- IDEA: Product section start -->
+  <div class="container" style="padding-top:20px; width: 80%; ">
+    <h1 class = "text-center heading"> Our Products</h1>
+    <div class="row">
+       <div class="col">
+           <div class="card" style="width: 19rem; margin: 2rem auto;">
+            <img src="{% static 'scorptec/images/products/acer.png' %}" class="card-img-top card-height" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-center">Acer Gaming</h5>
+              <p class="card-text">
+                <ul>
+                  <li>Windows 10 Home</li>
+                  <li>AMD Ryzen™ 5 5600H processor Hexa-core 3.30 GHz</li>
+                  <li>NVIDIA® GeForce® GTX 1650 with 4 GB dedicated memory</li>
+                  <li>15.6" Full HD (1920 x 1080) 16:9</li>
+                  <li>8 GB, DDR4 SDRAM</li>
+                </ul>
+              </p>
+
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="col">
+              <div class="card" style="width: 19rem; margin: 2rem auto;">
+               <img src="{% static 'scorptec/images/products/applewatch.jpg' %}" class="card-img-top watches" alt="...">
+               <div class="card-body">
+                 <h5 class="card-title text-center">Apple Watch</h5>
+                 <p class="card-text">
+                   <h6>Stay active. Stay healthy. Stay connected.</h6>
+                   <ul>
+                     <li>Space Grey Aluminium Case with Black Sport Band</li>
+                     <li>GPS</li>
+                     <li>Optical heart censor</li>
+                     <li>watchOS 5</li>
+                   </ul>
+                 </p>
+
+               </div>
+             </div>
+           </div>
+        </div>
+        <div class="col">
+          <div class="col">
+              <div class="card" style="width: 19rem; margin: 2rem auto;">
+               <img src="{% static 'scorptec/images/products/galaxy.jpg' %}" class="card-img-top watches" alt="...">
+               <div class="card-body">
+                 <h5 class="card-title">Galaxy Watch4 Classic Bluetooth </h5>
+                 <p class="card-text">
+                 <ul>
+                   <li>Design: Classic and Premium</li>
+                   <li>Blood pressure and ECG</li>
+                   <li>Daily Activity & Fitness tracking</li>
+                   <li>Galaxy Watch4 Classic is rated as IP68.</li>
+                   <li>Ridge Sports Band</li>
+                 </ul>
+                </p>
+
+               </div>
+             </div>
+           </div>
+        </div>
+      </div>
+      <div class="row">
+         <div class="col">
+             <div class="card" style="width: 19rem; margin: 2rem auto;">
+              <img src="{% static 'scorptec/images/products/ipad.png' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">iPad Pro</h5>
+                <p class="card-text">
+                  <ul>
+                    <li>Colors: Silver, Black ,Space grey</li>
+                    <li>Capacity: 259GB, 512GB, 1TB, 2TB</li>
+                    <li>USB-C Power Adapter</li>
+                    <li>Display 11 inch</li>
+                    <li>ProMotion Technology</li>
+                  </ul>
+                </p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="col">
+                <div class="card" style="width: 19rem; margin: 2rem auto;">
+                 <img src="{% static 'scorptec/images/products/iphone12.jpg' %}" class="card-img-top" alt="...">
+                 <div class="card-body">
+                   <h5 class="card-title">Iphone 12 Pro Max</h5>
+                   <p class="card-text">
+                     <ul>
+                       <li>Colors: Silver, Black ,Space grey</li>
+                       <li>Capacity: 259GB, 512GB, 1TB, 2TB</li>
+                       <li>USB-C Power Adapter</li>
+                       <li>RAM: 6GB</li>
+                       <li>Wi-Fi 802.11a</li>
+                     </ul>
+                   </p>
+
+                 </div>
+               </div>
+             </div>
+          </div>
+          <div class="col">
+            <div class="col">
+                <div class="card" style="width: 19rem; margin: 2rem auto;">
+                 <img src="{% static 'scorptec/images/products/Lenovo.jpg' %}" class="card-img-top card-height" alt="...">
+                 <div class="card-body">
+                   <h5 class="card-title">Lenovo Thinkpad</h5>
+                   <p class="card-text">
+                     <ul>
+                       <li>Display :14 inch</li>
+                       <li>OS:Windows 10 Home edition</li>
+                       <li>RAM; 12GB</li>
+                       <li>Intel core i7 processor</li>
+                       <li>HardDisk: 256GB SSD</li>
+                        <li>Intel HD Graphics 520</li>
+                         <li>Number of ports:3</li>
+                     </ul></p>
+
+                 </div>
+               </div>
+             </div>
+          </div>
+        </div>
+        <div class="row">
+           <div class="col">
+               <div class="card" style="width: 19rem; margin: 2rem auto;">
+                <img src="{% static 'scorptec/images/products/ps5.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Sony Playstation 5</h5>
+                  <p class="card-text">
+                    <ul>
+                      <li>Maximum resolution 4K.</li>
+                      <li>Maximum frame rate 120fps</li>
+                      <li>Storage 825GB SSD.</li>
+                      <li>Outputs HDMI 2.1, 3.5mm headphone jack (on controller), USB (Type-A) x3, USB-C.</li>
+                    </ul>
+                  </p>
+
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="col">
+                  <div class="card" style="width: 19rem; margin: 2rem auto;">
+                   <img src="{% static 'scorptec/images/products/samsung.jpg' %}" class="card-img-top" alt="...">
+                   <div class="card-body">
+                     <h5 class="card-title">Samsung s21 ultra</h5>
+                     <p class="card-text">
+                       <ul>
+                         <li>Storage; 128GB,256GB</li>
+                         <li>CPU : 2.9GHz, 2.8GHz, 2.2GJHz</li>
+                         <li>Colors: violet, Grey, Black, Pink</li>
+                         <li>CPU: OCta-Core</li>
+                         <li>Size (Main_Display) 158.4mm (6.2" full rectangle)</li>
+
+                       </ul>
+                     </p>
+
+                   </div>
+                 </div>
+               </div>
+            </div>
+            <div class="col">
+              <div class="col">
+                  <div class="card" style="width: 19rem; margin: 2rem auto;">
+                   <img src="{% static 'scorptec/images/products/samungtv.jpg' %}" class="card-img-top card-height" alt="...">
+                   <div class="card-body">
+                     <h5 class="card-title">Samsung QLED TV</h5>
+                     <p class="card-text">
+                       <h6 style="padding-bottom:1rem;">Unleash The Beast</h6>
+                      <li>Unleash vivid colour and contrast with Quantum Dot technology</li>
+                      <li>Keep up with the action with 200Hz Motion Rate</li>
+                      <li>Turn blank into beautiful thanks to Ambient Mode +</li>
+                      <li>Sizes: 55",65",75",85"</li>
+
+
+                    </p>
+
+                   </div>
+                 </div>
+               </div>
+            </div>
+          </div>
+  </div>
+
+    <!-- IDEA: new relase section ends -->
+  {%endblock%}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{%extends 'scorptec/user_design.html'%}
+{%load static%}
+  {%block body_block %}
+  <div class="container p-5 shadow-lg" style = " background-color:#eeeeee; margin: 5rem auto;">
+    <h1 class="text-center heading">Update {{user.first_name}}'s Profile</h1>
+    <form  method="POST">
+      {% csrf_token %}
+      <div class="col-md-6 offset-3">
+        <div class="row">
+          {{user_detail_form.as_p}}
+        </div>
+        <center>
+        <input type="submit" class="btn btn-success" value ="Update">
+        </center>
+      </div>
+
+
+    </form>
+  </div>
+
+
+  {% endblock %}

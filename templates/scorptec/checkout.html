@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{%extends 'scorptec/user_design.html'%}
+{%load static%}
+ {%block body_block %}
+ <div class="container p-5 shadow-lg" style="background-color:#eeeeee; margin:5rem auto;">
+   <h1 class="text-center heading">Order Summary</h1>
+	  <p class="lead">Items on {{user}}'s Order:</p>
+	  <hr class="my-4">
+    <table class=" table table-secondary shadow-lg table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Image</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for product in products %}
+        <tr>
+         <td><img src="{{product.product.product_image.url}}" style="width:6rem;height:6rem;"></td>
+         <td><strong>{{product.product.product_name}}</strong></td>
+
+         <td>
+           <p class="quantity">{{product.no_of_items}}</p>
+        </td>
+         <td>${{product.total}}</td>
+       </tr>
+       {% endfor %}
+      </tbody>
+    </table>
+  <hr class="my-4">
+  <div class="row">
+    <div class="col-md-6">
+      <h6>Total Number of items: {{order.cart_items}}</h6>
+      <h6>Total Price: {{order.cart_total}}</h6>
+    </div>
+    <div class="col-md-3 offset-3">
+      <h6 class="text-center">Finalise Order</h6>
+      <!-- Reference; https://developer.paypal.com/demo/checkout/#/pattern/client -->
+      <!-- Set up a container element for the button -->
+      <div id="paypal-button-container"></div>
+      <!-- Include the PayPal JavaScript SDK -->
+      <script src="https://www.paypal.com/sdk/js?client-id=Ae2yrXPYVYuBktHBfofHMlq4ptimnkrFRIbTlacSTECXYpe_NT-rNxhFlvajmzyEI5CH-DsBjiJ_XgLC&currency=AUD"></script>
+
+      <script>
+        var total = '{{order.cart_total}}'
+       // Render the PayPal button into #paypal-button-container
+       paypal.Buttons({
+
+           // Set up the transaction
+           createOrder: function(data, actions) {
+               return actions.order.create({
+                   purchase_units: [{
+                       amount: {
+                           value: parseFloat(total).toFixed(2)
+                       }
+                   }]
+               });
+           },
+
+           // Finalize the transaction
+           onApprove: function(data, actions) {
+               return actions.order.capture().then(function(orderData) {
+                   // Successful capture! For demo purposes:
+                  makePayment()
+                
+
+                   // Replace the above to show a success message within this page, e.g.
+                   // const element = document.getElementById('paypal-button-container');
+                   // element.innerHTML = '';
+                   // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                   // Or go to another URL:  actions.redirect('thank_you.html');
+               });
+           }
+
+
+       }).render('#paypal-button-container');
+   </script>
+
+    </div>
+
+  </div>
+
+
+    <!--<button class="btn btn-primary btn-lg" id ="payment"> <strong><em>Payment </em></strong> <img src="{% static 'scorptec/images/payment.png' %}" style="height:2rem;width:2rem;"alt=""> </button> -->
+
+
+
+</div>
+
+
+<script type="text/javascript">
+
+  //when the payement button is Clicked
+  /*
+  document.getElementById('payment').addEventListener('click',function(e){
+    makePayment()
+  })
+  */
+
+  //function to do Payment
+  function makePayment(){
+    console.log("Payment Button Clicked")
+    var url = '/order_process/'
+    fetch(url,{
+      method: 'POST',
+      headers:{
+        'Content_Type':'application/json',
+        'X-CSRFToken': csrftoken,
+      },
+      body:JSON.stringify({'total':total})
+    })
+    .then((response)=>response.json())
+
+    .then((data) =>{
+      console.log('Success:', data);
+      alert("Transaction completed");
+      window.location.href ="{% url 'scorptec:userhome'%}"
+
+    })
+    }
+
+
+</script>
+{% endblock%}

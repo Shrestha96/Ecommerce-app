@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scorptec-Homepage</title>
+    <!-- Importing Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- IDEA: Linking our CSS -->
+
+    <link rel="stylesheet" href="{% static 'scorptec/css/userstyle.css' %}">
+
+    <script type="text/javascript">
+        var user ='{{request.user}}'
+        //getting csrf token for POST method
+        //https://docs.djangoproject.com/en/3.2/ref/csrf/
+        //details found in above link
+        function getCookie(name) {
+          let cookieValue = null;
+          if (document.cookie && document.cookie !== '') {
+              const cookies = document.cookie.split(';');
+              for (let i = 0; i < cookies.length; i++) {
+                  const cookie = cookies[i].trim();
+                  // Does this cookie string begin with the name we want?
+                  if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                      cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                      break;
+                  }
+              }
+          }
+          return cookieValue;
+      }
+      const csrftoken = getCookie('csrftoken');
+    </script>
+
+
+  <body>
+
+    <!-- IDEA: NavBar starts here -->
+    <div class="navbar navbar-expand-md navbar-light justify-content-between" style="padding: 0% 10%; font-size:1.15rem;">
+      <!-- IDEA: Brand logo display for our navbar -->
+      <a class="navbar-brand" href="#" style="padding-right:7%;">
+        <img src="{% static 'scorptec/images/logo.png' %}" width ="200px" height = "60px" alt="">
+      </a>
+
+
+      <!-- IDEA: Toggle button display on NavBar -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <!-- IDEA: menu items display in navbar -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class = "navbar-nav">
+          <li class = "nav-item">
+            <a class="nav-link" href="{% url 'scorptec:userhome'%}"><span class = "navigation-items">Home</span></a>
+          </li>
+          <li class = "nav-item">
+            <a class="nav-link" href="{% url 'scorptec:favourite'%}"><span class = "navigation-items">Favourites({{no_of_favourites}})</span></a>
+          </li>
+          <li class = "nav-item">
+            <a class="nav-link" href="{% url 'scorptec:my_cart'%}"><span class = "navigation-items">My cart({{cart_items}})</span></a>
+          </li>
+          <li class = "nav-item">
+            <a class="nav-link" href="{% url 'scorptec:user_profile'%}"><span class = "navigation-items">Profile</span></a>
+          </li>
+
+        </ul>
+        <form method="GET" action ="{% url 'scorptec:search'%}" style="padding-left:15%;">
+          <input type="text" name = "q" value="{{ q }}" placeholder="Search" style="border-radius:4px; height:2.35rem;" id ="focus">
+          <button type="submit" name="button" value="submit" style="height:2.35rem;"><img src="{%static 'scorptec/images/search-icon.png'%}" alt="" style="height:1.6rem;width:1.5rem;"></button>
+        </form>
+
+        <!-- IDEA: log in button display in our nav bar -->
+        <a href="{% url 'scorptec:logout'%}"style="padding-left:10%;"> <button class="btn btn-danger log" type="submit" name="button">Log Out</button></a>
+
+      </div>
+
+
+    </div>
+    <!-- IDEA: Navbar ends here -->
+    {% if messages %}
+    {% for message in messages %}
+    <div class="container mt-2">
+
+      <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong> {{ message }} </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    {%block body_block %}
+    {% endblock %}
+
+    <!-- IDEA: Footet starts here -->
+    <div class="container" style= "background-color: black; color: white; padding: 2rem;">
+      <p class="text-center" style="padding-bottom:0px; margin-bottom: 0px;"> &copy; 2019 Copyright : Scorptec Electronics</p>
+
+    </div>
+    <!-- IDEA: Footer Ends here -->
+
+
+
+    <!-- IDEA: importing jquery -->
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+
+    <!-- idea: importing js and popper package -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- IDEA: importing cart.js to  function our cart -->
+    <script type="text/javascript" src="{% static 'scorptec/js/cart.js'%}">
+    </script>
+
+    <script type="text/javascript" src="{% static 'scorptec/js/favourite.js'%}">
+    </script>
+
+  </body>
+</html>

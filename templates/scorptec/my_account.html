@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{%extends 'scorptec/user_design.html'%}
+{%load static%}
+{%block body_block %}
+<div class="container p-5 shadow-lg" style="background-color:#eeeeee; margin-top:5rem; margin-bottom:0;">
+  <h1 class="text-center heading">My Profile</h1>
+
+
+  <div class="row">
+    <div class="col-md-4">
+      <p style="margin:1rem 5rem;"><a href="{% url 'scorptec:update_user'%}">EDIT <img src="{% static 'scorptec/images/edit.png' %}" style="height:1.5rem;width:1.5rem;" alt=""></a></p>
+      <img src="{% static 'scorptec/images/user_profile.png' %}" style="border-radius:50%;" alt="">
+      <h3>{{user.first_name}} {{user.last_name}}</h3>
+    </div>
+    <div class="col md-6 offset-2" style="padding:3rem;">
+      <table>
+        <tr>
+          <th>Name:</th>
+          <td>{{user.first_name}} {{user.last_name}}</td>
+        </tr>
+        <tr>
+          <th>Email:</th>
+          <td>{{user.email}}</td>
+        </tr>
+        <tr>
+          <th>Username:</th>
+          <td>{{user}}</td>
+        </tr>
+        <tr>
+          <th>Address:</th>
+          <td>{{userdetail.address}}</td>
+        </tr>
+        <tr>
+          <th>ZIP:</th>
+          <td>{{userdetail.zip_code}}</td>
+        </tr>
+        <tr>
+          <th>Date of Birth:</th>
+          <td>{{userdetail.date_of_birth}}</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+
+</div>
+<div class="container p-5 shadow-lg" style="background-color:#eeeeee; margin:2rem auto;">
+  <h1 class="text-center heading">Order History</h1>
+  <table class=" table table-secondary shadow-lg table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Order No.</th>
+        <th scope="col">Order Date</th>
+        <th scope="col">Transaction ID</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+        {% for user_order in user_orders %}
+        <tr>
+          <td>{{user_order.id}}</td>
+          <td>{{user_order.order_created}}</td>
+          <td>{{user_order.transaction_id}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+
+
+
+
+
+
+</div>
+{% endblock%}

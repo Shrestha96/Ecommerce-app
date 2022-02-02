@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+{%extends 'scorptec/design.html'%}
+{%block head_title%} Scorptec-contact {%endblock%}
+{%load static%}
+
+  {%block body_block%}
+    <!-- IDEA: carousel starts here -->
+
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" >
+          <div class="overlay-image" style="background-image: url('/static/scorptec/images/carousel9.jpg')">
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="overlay-image"  style="background-image: url('/static/scorptec/images/carousel3.jpg');">
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="overlay-image" style="background-image: url('/static/scorptec/images/carousel4.jpg')">
+          </div>
+
+        </div>
+      </div>
+      <button id="carousel-button" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button id="carousel-button" class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <!-- IDEA: carousel ends here -->
+    
+    <!-- IDEA: Contact main page -->
+    <div class="container" style="padding:20px 0; width:80%;">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Our Locations:</h2>
+
+            <div class="row">
+              <div class="col-md-6">
+                <ul>
+                  <li><b>CLAYTON</b><br>
+                      Unit 6/2 Garden Rd <br>
+                      Clayton, VIC, 3168,<br>
+                      (03) 8561 3200 <br>
+                    </li>
+                    <li><b>AUBURN</b> <br>
+                        15 Newton Street South <br>
+                        Auburn, NSW, 2144,<br>
+                        1300 780 537 <br>
+                    </li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul>
+                  <li><b>CLAYTON</b><br>
+                      Unit 6/2 Garden Rd <br>
+                      Clayton, VIC, 3168,<br>
+                      (03) 8561 3200 <br>
+                    </li>
+                    <li><b>AUBURN</b> <br>
+                        15 Newton Street South <br>
+                        Auburn, NSW, 2144,<br>
+                        1300 780 537 <br>
+                    </li>
+                </ul>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+          <img src="{% static 'scorptec/images/map.png'%}"style="height:19rem;width:33rem;padding-left:5rem;padding-bottom:2%;" alt="">
+        </div>
+
+      </div>
+      <h1 class="text-center heading" style="padding-top:5%;">Give Us a Shout</h1>
+      <p class="text-center">If you have any queries Drop us an email using form below:</p>
+
+        <div class="row">
+          <div class="col-md-10 offset-sm-1 text-center">
+            <form action="{% url 'scorptec:contact' %}" class="form-inline justify-content-center" method="POST">
+              {% csrf_token %}
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingFirstName" placeholder="Name" name="message-name">
+                <label for="floatingFirstName">Name</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="message-email">
+                <label for="floatingInput">Email address</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingSubject" placeholder="Subject" name="message-subject">
+                <label for="floatingSubject">Subject</label>
+              </div>
+              <div class="form-floating mb-3">
+                <textarea class="form-control" id="floatingText" placeholder="Message" style="height: 10rem;" name="message"></textarea>
+                <label for="floatingText">Message</label>
+              </div>
+              <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-success btn-lg" style="margin-right:1.5%;">Submit</button>
+                <button type="reset" class="btn btn-danger btn-lg">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+    </div>
+
+    <!-- IDEA: end of main part -->
+
+  {%endblock%}

@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Charm:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+.navbar{
+  background-image: linear-gradient(135deg,#a0a0a0,#f2f2f2, #dcdcdc, #a9a9a9,#dcdcdc,#C0C0C0);
+}
+.nav-item{
+  padding-left: 5%;
+
+}
+.nav-link{
+
+  font-style: bold;
+}
+.navigation-items{
+  color:black;
+}
+.navigation-items:hover{
+  color:red;
+}
+
+.carousel-item{
+  height: 450px;
+  position: relative;
+}
+.heading{
+  font-family: 'Bangers', cursive;
+  font-size: 4rem;
+}
+
+.overlay-image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+
+}
+
+
+.carousel-inner{
+  background-color: black;
+}
+.card{
+  border-radius: 1.25rem;
+  background-color: #FFFAFA;
+}
+.card-img-top{
+  width:17rem;
+  height:19rem;
+  margin:5px auto;
+}
+.watches{
+  width: 12rem;
+  height:15rem;
+  margin:0 auto;
+}
+.card-height{
+  height:15rem;
+}
+.about-img{
+  height: 7rem;
+  width: 7rem;
+}
+.car-img{
+  height: 7rem;
+  width: 7rem;
+}
+
+.custom-about{
+  padding: 5%;
+}
+
+.social-link{
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon{
+  filter: invert(1);
+}
+.carousel-indicators{
+  filter: invert(1);
+}
+.car-img{
+  height: 5rem;
+  width: 5rem;
+  border-radius:100%;
+}
+.text-style{
+  font-family: 'Charm', cursive;
+}
+
+
+@media only screen and (min-width: 768px){
+
+  .btn-primary{
+    position: absolute;
+    right: 10%;
+    top: 20px;
+  }
+
+  .navbar-nav{
+    padding-left: 20%;
+
+  }
+
+
+}

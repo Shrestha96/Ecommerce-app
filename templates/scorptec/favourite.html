@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{%extends 'scorptec/user_design.html'%}
+{%load static%}
+{%block body_block %}
+<div class="container p-5 shadow-lg" style="background-color:#eeeeee; margin:5rem auto;">
+  <h1 class="text-center heading">Favourites</h1>
+   <p class="lead">Items on Favourites</p>
+   <hr class="my-4">
+   <table class=" table table-secondary shadow-lg table-striped">
+     <thead>
+       <tr>
+         <th scope="col">Image</th>
+         <th scope="col">Product Name</th>
+         <th scope="col">price per each</th>
+         <th></th>
+
+       </tr>
+     </thead>
+     <tbody>
+       {% for product in products %}
+       <tr>
+        <td><img src="{{product.product.product_image.url}}" style="width:6rem;height:6rem;"></td>
+        <td><strong>{{product.product.product_name}}</strong></td>
+        <td>{{product.product.product_price}}</td>
+
+        <td><button data-product ={{product.product.id}} data-action="add" class="btn btn-info update-btn"><strong><em>Add to</em></strong> <img src="{% static 'scorptec/images/addToCart.png' %}" style="height:1.75rem;width:2rem;"alt=""> </button>
+        <button data-product ={{product.product.id}} data-action="remove" class="btn btn-danger update-fav-btn" style="border-radius:50%;"><strong>X</strong></button></td>
+      </tr>
+      {% endfor %}
+     </tbody>
+   </table>
+ <hr class="my-4">
+
+
+</div>
+{% endblock%}

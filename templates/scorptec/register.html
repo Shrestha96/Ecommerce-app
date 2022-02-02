@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+{%extends 'scorptec/design.html'%}
+{%block head_title%} Scorptec-register {%endblock%}
+{%load static%}
+{% load crispy_forms_tags %}
+{%block body_block%}
+<div class="container" style="width:80%;">
+  <div class="form-group">
+
+      <div class="row" style="margin-top:0px;margin-bottom:0px;">
+        <!-- IDEA: Starting of signup form -->
+
+
+          <div class="col-md-8 offset-md-2" style= "padding:4rem;">
+            <h3 class="text-center">Not a member yet!</h3>
+            <h1 class="text-center heading">SIGN UP</h1>
+            {% crispy register_form %}
+            {% comment %}
+            <form  method="POST">
+                  {% csrf_token %}
+
+                  <div class="row mb-2">
+                    {{form.username}}
+
+                  </div>
+                 <div class="row gx-5">
+                   <div class="col-6">
+                     <div class="row mb-2">
+                        {{form.first_name}}
+                     </div>
+
+                     <div class="row mb-2">
+                        {{form.email}}
+                     </div>
+                     <div class="row mb-2">
+                       {{user_detail_form.mobile}}
+
+                     </div>
+                     <div class="row mb-2">
+                        {{form.password}}
+                     </div>
+
+                   </div>
+                   <div class="col-6 mb-2 ">
+                     <div class="row mb-2">
+                        {{form.last_name}}
+                     </div>
+                     <div class="row mb-2">
+                        {{form.verify_email}}
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-md-6">
+                          {{user_detail_form.gender.label_tag}}
+                        </div>
+                        <div class="col-md-6" style="padding-right:0px;">
+                          {{user_detail_form.gender}}
+                        </div>
+                     </div>
+                     <div class="row">
+                        {{form.confirm_password}}
+                     </div>
+                   </div>
+                 </div>
+                 <div class="row mb-2">
+                   <div class="col-md-3">
+                     {{user_detail_form.date_of_birth.label_tag}}
+                   </div>
+                   <div class="col-md-9" style="padding-right:0px;">
+                     {{user_detail_form.date_of_birth}}
+                   </div>
+                 </div>
+                 <div class="row mb-2">
+                   {{user_detail_form.address}}
+                 </div>
+                 <div class="row">
+                   <div class="col-md-4 px-0 mb-2">
+                     {{user_detail_form.zip_code}}
+                   </div>
+                   <div class="col-md-8 px-0 mb-2">
+                     {{user_detail_form.country}}
+                   </div>
+                 </div>
+
+                 <div class="col-md-12 text-center">
+                   <input type="submit" class="btn btn-success" value ="Register"style="margin-right:1.5%;">
+                   <button type="reset" class="btn btn-danger">Reset</button>
+                 </div>
+            </form>
+            {% endcomment %}
+            <a href="{% url 'scorptec:login'%}"><p class="text-center"><strong>Already have an Account?</strong></p></a>
+          </div>
+          <!-- IDEA: end of sign up form -->
+
+          <!-- IDEA: login form -->
+            <!--
+          <div class="col-md-4" style="padding:4rem 2rem 4rem 4rem;" >
+            <h3 class="text-center">Welcome members</h3>
+            <h1 class="text-center heading">LOG IN HERE</h1>
+            <div style="margin-top:3rem;">
+              <form method="post" >
+                  {{log_form.as_p}}
+                  <div class="col-md-12 text-center">
+                    <button type="button" class="btn btn-success">LOG IN</button>
+
+
+                  </div>
+              </form>
+            </div>
+
+
+          </div>
+        -->
+        </div>
+
+
+
+
+  </div>
+</div>
+{%endblock%}

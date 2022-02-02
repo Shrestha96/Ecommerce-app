@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{%extends 'scorptec/design.html'%}
+{%block head_title%} Scorptec-about {%endblock%}
+{%load static%}
+
+  {%block body_block%}
+  <!-- IDEA: carousel starts here -->
+
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" >
+        <div class="overlay-image" style="background-image: url('/static/scorptec/images/carousel7.jpg')">
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="overlay-image"  style="background-image: url('/static/scorptec/images/carousel8.jpg');">
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="overlay-image" style="background-image: url('/static/scorptec/images/carousel9.jpg')">
+        </div>
+
+      </div>
+    </div>
+    <button id="carousel-button" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button id="carousel-button" class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- IDEA: carousel ends here -->
+
+  <div class="container"  style="padding-top:20px;width:80%;">
+    <h1 class = "text-center heading">About Our Service</h1>
+    <div class="row">
+      <div class="col-md-4 text-center custom-about" >
+        <img class ="about-img" src="{% static 'scorptec/images/home_delivery_icon.png'%}" alt=""  >
+        <h3>Home delivery</h3>
+        <p>We provide home delivery service without any addtional charges.</p>
+      </div>
+      <div class="col-md-4 text-center custom-about">
+        <img class ="about-img" src="{% static 'scorptec/images/guarantee.jpg'%}" alt="">
+        <h3>Product Guarantee</h3>
+        <p>Products available will have guarantee and warrenty of a year.</p>
+      </div>
+      <div class="col-md-4 text-center custom-about">
+          <img class ="about-img" src="{% static 'scorptec/images/customer_service.jpg'%}" alt="">
+        <h3>Customer Service</h3>
+        <p>Customer as a first priortiy will be served with full satisfaction by our friendy staffs.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- IDEA: testimonial carousel -->
+  <div class="container" style="width:81.5%;">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner" style="background-color: #dcdcdc; width: 100%; margin-bottom:1%; height: 20rem; padding:6% 15%;text-align: center;">
+        <div class="carousel-item active">
+          <h1 class="text-style">Great service with friendy staffs and variety of products available.</h1>
+          <img class="car-img" src="{% static 'scorptec/images/icon1.png'%}" alt="">
+          <p>-John Doe, Rockdale</p>
+        </div>
+        <div class="carousel-item">
+          <h1 class="text-style">Excellent repairing of devices available in the town within affordable range.</h1>
+          <img class="car-img" src="{% static 'scorptec/images/icon2.jpg'%}" alt="">
+          <p>-Kim Jhong, Townhall</p>
+        </div>
+        <div class="carousel-item">
+          <h1 class="text-style">Love the availabile products and wide range of items available.</h1>
+          <img class="car-img" src="{% static 'scorptec/images/icon3.jpg'%}" alt="">
+          <p>-Rohan Lama, Burwood</p>
+
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <!-- IDEA: end of testimonial carousel -->
+  {%endblock%}

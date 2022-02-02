@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{%extends 'scorptec/design.html'%}
+{%block head_title%} Scorptec-Login {%endblock%}
+{%load static%}
+{%block body_block%}
+  <!-- IDEA: login form -->
+
+  <div class="col-md-4 offset-4" style="padding:4rem 2rem 4rem 4rem;" >
+    <h3 class="text-center">Welcome members</h3>
+    <h1 class="text-center heading">LOG IN HERE</h1>
+    <div style="margin-top:3rem;">
+      <form action="{% url 'scorptec:login'%}"method="POST" >
+          {% csrf_token %}
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="username" id="floatingUserName" placeholder="Username" required>
+            <label for="floatingUserName">Username</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password" required>
+            <label for="floatingPassword">Password</label>
+          </div>
+          <div class="col-md-12 text-center">
+            <input type="submit" class="btn btn-success" value="Log in">
+          </div>
+      </form>
+      <a href="{% url 'scorptec:register'%}"><p class="text-center"><strong><em>New member register here!</em></strong></p></a>
+        <a href="{% url 'reset_password' %}"><p class="text-center"><strong><em>Forgot Password?</em></strong></p></a>
+    </div>
+
+
+  </div>
+
+{%endblock%}
